@@ -3,7 +3,7 @@ import { Heart, Phone, Mail } from 'lucide-react'
 const contactInfo = {
   phones: [
     { number: '0987646738', tel: '+593987646738' },
-    { number: '0979287500', tel: '+593979287500' },
+    { number: '0999052662', tel: '+593999052662' },
   ],
   emails: [
     { address: 'giovannyrubio@yahoo.es' },

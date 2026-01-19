@@ -5,6 +5,7 @@ import { GallerySection } from '@/components/GallerySection'
 import { SynopsisSection } from '@/components/SynopsisSection'
 import { DetailsSection } from '@/components/DetailsSection'
 import { AboutSection } from '@/components/AboutSection'
+import { CastSection } from '@/components/CastSection'
 import { TestimonialsSection } from '@/components/TestimonialsSection'
 import { FAQSection } from '@/components/FAQSection'
 import { SocialMediaSection } from '@/components/SocialMediaSection'
@@ -22,6 +23,7 @@ export default function Home() {
       <SynopsisSection />
       <DetailsSection />
       <AboutSection />
+      <CastSection />
       <TestimonialsSection />
       <FAQSection />
       <SocialMediaSection />
