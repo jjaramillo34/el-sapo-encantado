@@ -1,0 +1,42 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-gradient-to-br from-primary-900 via-primary-800 to-primary-900 text-white antialiased;
+  }
+}
+
+@layer utilities {
+  .text-shadow {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  }
+  
+  .text-shadow-lg {
+    text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5);
+  }
+  
+  @keyframes floatCloud {
+    0% {
+      transform: translateX(-100px);
+    }
+    100% {
+      transform: translateX(calc(100vw + 100px));
+    }
+  }
+  
+  .animate-cloud {
+    animation: floatCloud linear infinite;
+  }
+  
+  .cloud-delay-1 { animation-duration: 40s; }
+  .cloud-delay-2 { animation-duration: 50s; }
+  .cloud-delay-3 { animation-duration: 60s; }
+  .cloud-delay-4 { animation-duration: 45s; }
+  .cloud-delay-5 { animation-duration: 55s; }
+}
