@@ -1,10 +1,15 @@
 'use client'
 
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import Image from 'next/image'
 import anime from 'animejs'
 import { Clock, Users, Drama, Sparkles, Phone } from 'lucide-react'
 import { AnimatedClouds } from './AnimatedClouds'
+
+interface SparklePosition {
+  left: number
+  top: number
+}
 
 export function HeroSection() {
   const heroRef = useRef<HTMLDivElement>(null)
@@ -12,6 +17,16 @@ export function HeroSection() {
   const titleRef = useRef<HTMLHeadingElement>(null)
   const subtitleRef = useRef<HTMLParagraphElement>(null)
   const sparkleRefs = useRef<(HTMLDivElement | null)[]>([])
+  const [sparklePositions, setSparklePositions] = useState<SparklePosition[]>([])
+
+  // Set sparkle positions only on client side to avoid hydration mismatch
+  useEffect(() => {
+    const positions: SparklePosition[] = Array.from({ length: 20 }, () => ({
+      left: Math.random() * 100,
+      top: Math.random() * 100,
+    }))
+    setSparklePositions(positions)
+  }, [])
 
   useEffect(() => {
     // Logo animation
@@ -108,18 +123,18 @@ export function HeroSection() {
         <AnimatedClouds />
         
         <div className="absolute inset-0 opacity-30">
-          {[...Array(20)].map((_, i) => (
+          {sparklePositions.length > 0 && sparklePositions.map((position, i) => (
             <div
               key={i}
               ref={(el) => {
-                if (sparkleRefs.current.length < 20) {
-                  sparkleRefs.current.push(el)
+                if (sparkleRefs.current.length < 20 && el) {
+                  sparkleRefs.current[i] = el
                 }
               }}
               className="absolute"
               style={{
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
+                left: `${position.left}%`,
+                top: `${position.top}%`,
               }}
             >
               <Sparkles className="w-6 h-6 text-yellow-300" />

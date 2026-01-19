@@ -11,6 +11,8 @@ import { FAQSection } from '@/components/FAQSection'
 import { SocialMediaSection } from '@/components/SocialMediaSection'
 import { ContactSection } from '@/components/ContactSection'
 import { Footer } from '@/components/Footer'
+import { WhatsAppButton } from '@/components/WhatsAppButton'
+import { ScrollToTop } from '@/components/ScrollToTop'
 import { useScrollAnimation } from '@/components/ScrollAnimation'
 
 export default function Home() {
@@ -29,6 +31,8 @@ export default function Home() {
       <SocialMediaSection />
       <ContactSection />
       <Footer />
+      <WhatsAppButton />
+      <ScrollToTop />
     </main>
   )
 }
